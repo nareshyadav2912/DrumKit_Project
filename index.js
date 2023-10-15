@@ -6,13 +6,15 @@ function handleClick(){
     //this.style.color="white";
     var ele=this.innerHTML;
     sound(ele);
+    animation(ele);
     
 }
 document.addEventListener("keypress", function(event){
     sound(event.key);
+    animation(event.key);
 });
-function sound(key){
-    switch (key) {
+function sound(clkey){
+    switch (clkey) {
         case "w":
             var audio=new Audio('sounds/tom-1.mp3');
             audio.play();
@@ -44,4 +46,11 @@ function sound(key){
         default:
             break;
     }
+}
+function animation(aniKey){
+    var pbtn=document.querySelector("."+aniKey);
+    pbtn.classList.add("pressed");
+    setTimeout(function(){
+        pbtn.classList.remove("pressed");
+    },100);
 }
