@@ -5,7 +5,14 @@ for(var i=0;i<document.querySelectorAll(".drum").length;i++){
 function handleClick(){
     //this.style.color="white";
     var ele=this.innerHTML;
-    switch (ele) {
+    sound(ele);
+    
+}
+document.addEventListener("keypress", function(event){
+    sound(event.key);
+});
+function sound(key){
+    switch (key) {
         case "w":
             var audio=new Audio('sounds/tom-1.mp3');
             audio.play();
